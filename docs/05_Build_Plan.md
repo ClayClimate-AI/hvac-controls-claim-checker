@@ -10,7 +10,7 @@ Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **u
 
 | # | Unit | Done when | How Joe verifies | Branch | Status |
 |---|---|---|---|---|---|
-| P0 | Phase 0: scaffold, bubble, setup gate, Vitest, CI, deploy | Scaffold live on Vercel; `npm run gate` exits 0; CI green | Open the Vercel URL; run the gate; see the Actions check | `chore/phase-0` | pending |
+| P0 | Phase 0: scaffold, bubble, setup gate, Vitest, CI, deploy | Scaffold live on Vercel; `npm run gate` exits 0; CI green | Open the Vercel URL; run the gate; see the Actions check | `chore/phase-0` | in progress (P0.1 verified) |
 | U1 | `calc.ts` with tests | Worked example numbers pass; invariants tested | `npm test` green, read the numbers | `feat/calc` | pending |
 | U2 | `schema.ts` with tests | Valid passes, bad shapes fail | `npm test` green | `feat/schema` | pending |
 | U3 | Manual path | Typed values, including the site inputs the math needs (kWh, HVAC share, rate, maintenance, schedules, fans, price, claim), produce the three cases on screen, validated by `SiteConditionsSchema` | Type the P01 values by hand, compare to the worked example | `feat/manual-path` | pending |

@@ -7,13 +7,13 @@
 | Field | Value |
 |---|---|
 | Stage | **C0 passed. Phase 0 in progress (Full mode)** |
-| Current unit | P0.1 Scaffold + bubble |
-| Current checkpoint | P0.1 approved at C1; amendment A9 committed first |
-| Last commit | `031a5b0` C0 commit on `main` (the only direct commit to `main`) |
+| Current unit | P0.1 Scaffold + bubble (verified) |
+| Current checkpoint | P0.1 C2: Joe verified; commit awaiting approval |
+| Last commit | `807c951` amendment A9 on `chore/phase-0` (`main` is at `031a5b0`, the C0 commit) |
 | CI | Not wired yet (Phase 0, P0.4) |
 | Live URL | Not deployed yet (Phase 0, P0.5) |
-| Next single action | Commit amendment A9 on `chore/phase-0`, then finish P0.1 (`npm install`, build, dev) for Joe to verify. |
-| Last updated | 2026-10-01, C0 |
+| Next single action | Joe approves the P0.1 commit (and decides on RCA-001); then the Agent presents the P0.2 plan, including the `unrs-resolver` install-script warning. |
+| Last updated | 2026-10-01, P0.1 C2 |
 
 ## Step 0 · P-I-O-F for the whole project (confirmed at C0, 2026-10-01)
 
@@ -79,7 +79,7 @@ Status values: `pending` → `planned (C1)` → `red confirmed` (failing test ou
 
 | Unit | Name | Done when | Branch | Status | Commit | PR | CI |
 |---|---|---|---|---|---|---|---|
-| P0.1 | Scaffold + bubble | Next.js app runs locally; `.nvmrc` committed | `chore/phase-0` | pending | | | |
+| P0.1 | Scaffold + bubble | Next.js app runs locally; `.nvmrc` committed; `npm run build` passes | `chore/phase-0` | verified (C2) | | | |
 | P0.2 | Deps + setup gate | `npm run gate:setup` exits 0; exits 1 with `EXTRA_REQUIRED=not-a-real-package` | `chore/phase-0` | pending | | | |
 | P0.3 | Test harness | Vitest runs; a deliberately failing sanity test fails, then is removed | `chore/phase-0` | pending | | | |
 | P0.4 | CI Tier 1 | Actions workflow green on push and pull request | `chore/phase-0` | pending | | | |
@@ -100,7 +100,14 @@ Phase 0 items share one branch, `chore/phase-0`, as named in `docs/05_Build_Plan
 
 ### Per-unit P-I-O-F (written at C1, one block per unit)
 
-_Empty until the first C1._
+**P0.1 · Scaffold + bubble** (C1 approved 2026-10-01 with three changes from Joe; this block was written at C2, not at C1 as the rule requires)
+
+- **Purpose:** a working Next.js app with the Node version pinned, so the laptop, CI and Vercel run the same setup.
+- **Inputs:** `create-next-app@latest` (Next.js 16.3.8): TypeScript, Tailwind, ESLint, App Router, no `src/`, `@/*` alias; Node 24 LTS via nvm.
+- **Outputs:** scaffold files; `.nvmrc` = `24`; `package.json` with `"engines": { "node": "24.x" }` (Vercel reads `engines`, not `.nvmrc`; Joe's change 1); merged `.gitignore` keeping every private-method line; `next.config.ts` with `agentRules: false` (failure 3).
+- **Flow:** generate in the scratchpad → copy in, skipping `.git`, `node_modules`, `README.md`, `.gitignore` and the private method files (Joe's change 2) → `npm install` → build → dev.
+- **Known-bad:** under Node 26, `nvm use` must switch to 24 → `node -v` = `v24.21.0`.
+- **Done when (Joe verified):** `node -v` v24.21.0; `npm run build` exit 0 (Joe's change 3); starter page at localhost:3000; `git status` shows no private or `.env` file; the private method files and folders ignored.
 
 ## Failure log (write BEFORE fixing)
 
@@ -108,6 +115,8 @@ _Empty until the first C1._
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 2026-10-01, after C0 commit | C0 push | `git push -u origin main` → `remote: Invalid username or token. Password authentication is not supported for Git operations.` `fatal: Authentication failed` (exit 128). `origin/main` does not exist | The push itself | Git's `store` credential helper holds an invalid or expired GitHub credential; `gh` is not logged in | Joe ran `gh auth login`; authentication now works (failure 2 is a new cause) | none (no trigger) | none | No |
 | 2 | 2026-10-01, push retry | C0 push | `remote: error: GH007: Your push would publish a private email address.` `! [remote rejected] main -> main (push declined due to email privacy restrictions)` (exit 1). `origin/main` still does not exist | The push itself (GitHub email privacy protection) | Commit `e405e17` is authored with the global git email, which GitHub marks private; no repo-level `user.email` is set | Repo `user.email` set to the GitHub noreply address; unpushed commit re-authored (`e405e17` → `031a5b0`); push succeeded | none (Joe: failure row is enough) | none | No |
+| 3 | 2026-10-01, P0.1 `npm run dev` | P0.1 | Dev server printed `✓ Generated [private agent file] for AI agents. Set agentRules: false in next.config to disable.` (name withheld, ADR 0009). That private agent file gained a `nextjs-agent-rules` block (original text kept; file is git-ignored, nothing reached git) | Agent, reading the dev server output | Next.js 16 `next dev` writes agent rules into the private agent file by default; the P0.1 plan didn't account for it | Joe chose (a): `agentRules: false` in `next.config.ts`; added lines removed from the private agent file; the block's useful rule (read `node_modules/next/dist/docs/` before Next.js code) kept as a private standing rule | none | none | No |
+| 4 | 2026-10-01, P0.1 copy step | P0.1 | Agent's copy loop `for f in $FILES` in zsh: `cp: …/scaffold/app/favicon.ico app/globals.css … tsconfig.json: No such file or directory`; loop ran once, copied nothing, and `mkdir -p` created an empty nested folder tree under `app/` named after the whole file list | Agent, reading the command output | zsh does not split an unquoted string variable into words (bash does); the agent wrote bash-style code for a zsh shell. **Process slip:** the agent fixed it (deleted the empty tree, re-ran with an inline list) before writing this row | Empty tree removed after confirming 0 files inside; files copied one at a time with an inline list; `git status --untracked-files=all` confirmed only expected paths | RCA-001 (trigger 3: AI-caused) | none | Yes (coding agent) |
 
 ## Amendments (changes to the C0 contract)
 
@@ -129,6 +138,7 @@ Each RCA names a prevention that changes the system.
 
 | RCA | Title | Unit | Category | Prevention (file) | Status |
 |---|---|---|---|---|---|
+| RCA-001 | Copy loop broke under zsh word splitting | P0.1 | AI output (coding agent) | Rule: no loops over unquoted string variables; inline lists or arrays; check `git status --untracked-files=all` after any bulk file operation; log before cleanup (private build method, kept local) | Confirmed by Joe; prevention in place |
 
 ## Decisions (ADR index)
 

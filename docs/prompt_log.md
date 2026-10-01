@@ -125,4 +125,6 @@ The grill doubled as presentation rehearsal: for decisions already made, I expla
 
 | # | Slice | Prompt | AI response | Judgment | Why |
 |---|---|---|---|---|---|
-| | | | | | |
+| B1 | P0.1 | Agent's P0.1 plan: Next.js scaffold, pin Node 24 LTS in `.nvmrc` | Plan with files, Node choice (machine had Node 26, not LTS) and checks | Modified | I added three changes: `"engines": { "node": "24.x" }` because Vercel reads `engines`, not `.nvmrc`; skip `.git`, `node_modules`, `README.md`, `.gitignore` and the private method files when copying, and list every file; `npm run build` must pass |
+| B2 | P0.1 | Dev server printed "Generated [private agent file] for AI agents" (name withheld, ADR 0009) | The agent stopped, logged it (failure 3), showed the added lines, confirmed the other private method file was untouched, and found the `agentRules` setting in the Next.js source | Caught | I chose to disable it (`agentRules: false`) so a build tool can't edit my private files, and kept its useful part as my own rule: read the bundled Next.js docs before writing Next.js code |
+| B3 | P0.1 | Agent's file copy loop | Written for bash but run in zsh: copied nothing and created an empty folder tree | Caught | The agent caught it from the output but fixed it before logging it, which breaks the log-first rule. Logged as failure 4 with RCA-001 |
