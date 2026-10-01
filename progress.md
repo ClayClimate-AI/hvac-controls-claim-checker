@@ -6,14 +6,13 @@
 
 | Field | Value |
 |---|---|
-| Stage | **C0 passed. Phase 0 next (Gate mode)** |
+| Stage | **C0 passed. Phase 0 in progress (Full mode)** |
 | Current unit | P0.1 Scaffold + bubble |
-| Current checkpoint | C1 for P0.1 (not yet presented) |
-| Last commit | C0 commit on `main` (the only direct commit to `main`) |
+| Current checkpoint | P0.1 approved at C1; amendment A9 committed first |
+| Last commit | `031a5b0` C0 commit on `main` (the only direct commit to `main`) |
 | CI | Not wired yet (Phase 0, P0.4) |
 | Live URL | Not deployed yet (Phase 0, P0.5) |
-| Schedule | Grill + C0 5:45 to 7:00 · Phase 0 7:00 to 8:15 · U1 8:15 · U2 8:45 · U3 9:15 to 10:15 · U4 only if on schedule at 10:15 · **code freeze 11:00** · present 12:00 |
-| Next single action | The Agent presents the P0.1 P-I-O-F and branch `chore/phase-0` for C1 approval. |
+| Next single action | Commit amendment A9 on `chore/phase-0`, then finish P0.1 (`npm install`, build, dev) for Joe to verify. |
 | Last updated | 2026-10-01, C0 |
 
 ## Step 0 · P-I-O-F for the whole project (confirmed at C0, 2026-10-01)
@@ -25,11 +24,11 @@
 
 ### Mode
 
-**Gate mode.** The gate is today (Thursday, October 1, 2026, presentation at 12:00). Phase 0 runs P0.1 to P0.5 (P0.6 pre-commit skipped). Units U1, U2, U3 in that order (U2 is never skipped: the schema validates every entry point, including the manual path), then U4 to U6 as time allows, then U8-lite (five edge cases, lens). Fallback cut points: **U3** minimum safe demo (no AI), then **U4**, then **U6**. All gates still apply; only scope shrinks.
+**Full mode** (amendment A9). Phase 0 runs P0.1 to P0.5; P0.6 pre-commit is optional and Joe decides when we reach it. Then U1 to U8 in order (U2 is never skipped: the schema validates every entry point, including the manual path), each with the full loop: plan Joe approves, failing test first, build, Joe verifies, Joe approves the commit, pull request, CI green, Joe merges. U4 (AI extraction) is part of the product (D4), never optional. U8 runs all eleven edge cases. No time windows on any unit. The cut line in `docs/05_Build_Plan.md` is an emergency fallback only, not the plan.
 
 ### Scope
 
-- **In:** F1 to F9 in `docs/02_Specification.md` section 1. In Gate mode, F4 is met in basic form by U3 (site inputs the math needs); the polished site form (U7) sits after the cut line.
+- **In:** F1 to F9 in `docs/02_Specification.md` section 1. U3 covers the site inputs the math needs; U7 builds the polished site form and editable assumptions.
 - **Stretch:** F10 PDF upload.
 - **Out:** web fetching, accounts, database, weather normalization math, streaming, chat, component test framework, multi-agent crew, new schema fields for fees, kWh-only savings, incentives or controller counts (ADR 0006).
 
@@ -38,7 +37,7 @@
 1. Submission is the GitHub repo **and** the live URL, plus the live presentation. The repo stays private while building; at submission Joe makes it public or adds the instructor.
 2. Planning prompts count in the Prompt Log: **pending, instructor's answer.** The log is kept either way.
 3. The placeholder 25% and 20% are replaced by Joe's values: site-walk cuts 0% / 25% / 50% (unknown → 25%) and maintenance over 24 months → 20% (ADR 0005).
-4. Gate date: Thursday, October 1, 2026, 12:00. Gate mode.
+4. Gate date: Thursday, October 1, 2026. Full mode (amendment A9).
 
 ## Definition of Done (confirmed at C0, 2026-10-01)
 
@@ -85,16 +84,16 @@ Status values: `pending` → `planned (C1)` → `red confirmed` (failing test ou
 | P0.3 | Test harness | Vitest runs; a deliberately failing sanity test fails, then is removed | `chore/phase-0` | pending | | | |
 | P0.4 | CI Tier 1 | Actions workflow green on push and pull request | `chore/phase-0` | pending | | | |
 | P0.5 | Deploy | Vercel URL serves the scaffold; env var set on Vercel | `chore/phase-0` | pending | | | |
-| P0.6 | Pre-commit (optional) | Skipped in Gate mode | | skipped | | | |
+| P0.6 | Pre-commit (optional) | Hook runs typecheck + tests; blocks a commit with a failing test. Joe decides whether to build it | `chore/phase-0` | pending (optional) | | | |
 | U1 | `calc.ts` | Worked example passes; site-walk levels, rounding and payback edge cases tested | `feat/calc` | pending | | | |
 | U2 | `schema.ts` | Valid passes; over-range, wrong type, missing quotes fail; `SiteConditionsSchema` with schedules and fans | `feat/schema` | pending | | | |
 | U3 | Manual path | Typed values, including site inputs, show three cases on screen | `feat/manual-path` | pending | | | |
 | U4 | `/api/extract` | Sample returns valid Proposal; empty → 400; bad shape → 422; proposal text never logged | `feat/extract` | pending | | | |
 | U5 | Confirm step | Each value shows source sentence; editing changes results | `feat/confirm` | pending | | | |
 | U6 | Red flag rules | P01 shows four flags + maintenance note; P02 none; "Always ask" list shown | `feat/red-flags` | pending | | | |
-| **Cut line** | | If behind, stop here; U7 and U8 become "next steps" (U8-lite still runs) | | | | | |
+| **Cut line** | | Emergency fallback only, not the plan (see `docs/05_Build_Plan.md`) | | | | | |
 | U7 | Polished site form + assumptions | Form asks only for gaps; assumptions editable | `feat/site` | pending | | | |
-| U8 | Edge cases + v1.0 | Gate mode: five cases run, lens filled, deps diffed, tag v1.0 | `chore/edge-cases` | pending | | | |
+| U8 | Edge cases + v1.0 | All eleven cases run, lens filled, deps diffed, tag v1.0 | `chore/edge-cases` | pending | | | |
 | C4 | Reflection | `reflections.md` complete | | pending | | | |
 
 Phase 0 items share one branch, `chore/phase-0`, as named in `docs/05_Build_Plan.md`.
@@ -107,6 +106,8 @@ _Empty until the first C1._
 
 | # | When | Unit | Symptom (raw) | Caught by | Cause | Fix | RCA | ADR | AI-caused? |
 |---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-10-01, after C0 commit | C0 push | `git push -u origin main` → `remote: Invalid username or token. Password authentication is not supported for Git operations.` `fatal: Authentication failed` (exit 128). `origin/main` does not exist | The push itself | Git's `store` credential helper holds an invalid or expired GitHub credential; `gh` is not logged in | Joe ran `gh auth login`; authentication now works (failure 2 is a new cause) | none (no trigger) | none | No |
+| 2 | 2026-10-01, push retry | C0 push | `remote: error: GH007: Your push would publish a private email address.` `! [remote rejected] main -> main (push declined due to email privacy restrictions)` (exit 1). `origin/main` still does not exist | The push itself (GitHub email privacy protection) | Commit `e405e17` is authored with the global git email, which GitHub marks private; no repo-level `user.email` is set | Repo `user.email` set to the GitHub noreply address; unpushed commit re-authored (`e405e17` → `031a5b0`); push succeeded | none (Joe: failure row is enough) | none | No |
 
 ## Amendments (changes to the C0 contract)
 
@@ -120,6 +121,7 @@ _Empty until the first C1._
 | A6 | 2026-10-01 C0 | Math rules: display-only rounding, null device power = 0 W, payback "Never" / "Not stated", `missingBaseline` uses the real claim | U1 tests need exact rules | 02, 04 | Yes (9.1 to 9.4) |
 | A7 | 2026-10-01 C0 | One expected answer per test: P03 percent and price null, P04 watts and weather null, P05 verification null, X01 all null (200); edge-case table aligned to the answer keys | A test with two right answers can't fail cleanly | 04, BRIEF | Yes (9.5 with change) |
 | A8 | 2026-10-01 C0 | Gate mode; U3 includes the site inputs; repo private until submission; doc paths fixed; 400 for too-short text | Gate is today; F4 must survive the cut line | 03, 05, 08, 09, README, progress | Yes |
+| A9 | 2026-10-01 Phase 0 | Gate mode replaced by Full mode. Time-based schedule, fallback cut points and code freeze removed. P0.6 restored as optional. U7 and full U8 (eleven cases) follow U6; U8-lite removed. Cut line kept only as an emergency fallback. Supersedes the Gate mode part of A8 | Joe: follow the plan exactly as established at C0, with the full loop on every unit; no shortcuts because of the clock | progress, 05, 08, 09, prompt_log | Yes |
 
 ## Root cause analyses (RCA index)
 

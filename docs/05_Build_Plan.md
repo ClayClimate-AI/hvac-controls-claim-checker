@@ -6,7 +6,7 @@ Principle: **every step ends in a state that works, and you can prove it works.*
 
 Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **units U1 to U8**. Each unit runs the Builder Loop: P-I-O-F, C1, test first, implement, Joe runs it, C2 or C3, then a pull request Joe merges. The Status column is updated at every C2 (private build method, kept local).
 
-**Mode: Gate mode** (gate is October 1, 2026, presentation at 12:00). Phase 0 runs P0.1 to P0.5; units U1 to U6 in order (U1, U2, U3, never skipping U2: the schema validates every entry point, including the manual path); then U8-lite (five edge cases and the lens). Fallback cut points: **U3** is the minimum safe demo (no AI), then **U4**, then **U6**.
+**Mode: Full mode** (amendment A9). Phase 0 runs P0.1 to P0.5; P0.6 is optional and Joe decides when we reach it. Then U1 to U8 in order (U1, U2, U3, never skipping U2: the schema validates every entry point, including the manual path), each with the full loop. U4 is part of the product (D4), never optional. U8 runs all eleven edge cases.
 
 | # | Unit | Done when | How Joe verifies | Branch | Status |
 |---|---|---|---|---|---|
@@ -17,7 +17,7 @@ Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **u
 | U4 | `/api/extract` | Sample returns valid `Proposal` JSON; empty returns 400; bad shape 422 | Page or curl; network tab shows no key | `feat/extract` | pending |
 | U5 | Confirm step | Each value shows its source sentence and is editable | Paste sample, edit 18 to 15, results change | `feat/confirm` | pending |
 | U6 | Red flag rules | Sample shows four flags + maintenance note | `rules.test.ts` green, visual check | `feat/red-flags` | pending |
-| **Cut line** | | **If behind, stop here.** U7 and U8 become "next steps" in the presentation (U8-lite still runs). U3 already covers the site inputs the math needs, so F4 is met in basic form. | | | |
+| **Cut line** | | **Emergency fallback only, not the plan.** Used only if something outside the build stops work; then U7 and U8 become "next steps" in the presentation. U3 already covers the site inputs the math needs, so F4 is met in basic form. | | | |
 | U7 | Polished site form and editable assumptions | Site form asks only for gaps; assumptions editable | Set "runs on schedules" to No: adjusted equals vendor | `feat/site` | pending |
 | U8 | Edge-case run, then tag v1.0 | Eleven cases run and written into the lens; deps diffed | `04_Trustworthy_AI_Lens.md` filled in | `chore/edge-cases` | pending |
 
@@ -55,20 +55,9 @@ CI (GitHub Actions) is **required** (ADR 0008). It runs on every push and pull r
 4. The Agent drafts the pull request title and description (Unit, Tested, Validated, Docs, Refs). Joe opens it, checks CI is green, compares the preview to the design board, and merges with **Squash and merge**. The Agent never merges.
 5. After the merge: switch to `main`, pull, confirm the branch is deleted, record the PR number in `progress.md`.
 
-## Timeline (gate day, Thursday October 1, 2026)
+## Order
 
-| Time | Work |
-|---|---|
-| 5:45 to 7:00 | Grill session, C0 |
-| 7:00 to 8:15 | Phase 0 (P0.1 to P0.5) |
-| 8:15 | U1 `calc.ts` |
-| 8:45 | U2 `schema.ts` |
-| 9:15 to 10:15 | U3 manual path (minimum safe demo) |
-| **10:15** | **Schedule check:** U4 only if on schedule |
-| **11:00** | **Hard code freeze.** After this, only rehearsal and checking the live URL |
-| 12:00 | Present |
-
-The Agent reports at every unit whether the build is behind schedule, and by how much.
+Phase 0, then U1 to U8 in the order of the table above. No time windows on any unit.
 
 ## Using Claude Code (Matt Pocock skills)
 
