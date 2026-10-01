@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;color:#1c1d1f;background:#f4f4f1}
+a{color:#1f5a86}a:hover{color:#153f5e}
+</style>
+</head><body>
+<div style="width: 1280px; height: 860px; box-sizing: border-box; background: #f4f4f1; display: flex; flex-direction: column">
+
+<header style="height: 64px; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; background: #ffffff; border-bottom: 1px solid #d2d2cc">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 28px; height: 28px; border: 2px solid #1c1d1f; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">SC</div>
+<span style="font-size: 16px; font-weight: 600">Savings Claim Checker</span>
+</div>
+<ol aria-label="Progress" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; font-size: 13px">
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #1c1d1f; color: #ffffff; font-weight: 500"><span style="font-family: 'IBM Plex Mono', monospace">1</span>Paste proposal</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #5e5f63"><span style="font-family: 'IBM Plex Mono', monospace">2</span>Confirm values</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #5e5f63"><span style="font-family: 'IBM Plex Mono', monospace">3</span>Site details</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #5e5f63"><span style="font-family: 'IBM Plex Mono', monospace">4</span>Results</li>
+</ol>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5e5f63; border: 1px dashed #a9a9a2; padding: 4px 8px; border-radius: 3px">Example data</span>
+</header>
+
+<main style="flex-grow: 1; padding: 48px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px">
+<section style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.01em">Check a vendor's energy savings claim</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #5e5f63; max-width: 640px">Paste the proposal your vendor sent. We pull out the numbers, show where each one came from, and you confirm them before anything is calculated.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="proposal" style="font-size: 14px; font-weight: 600">Proposal text</label>
+<textarea id="proposal" style="height: 360px; box-sizing: border-box; padding: 16px; border: 1px solid #b9b9b2; border-radius: 6px; background: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #1c1d1f; resize: none">PROPOSAL 2026-114 · Northside Medical Office Building
+[Vendor] Adaptive Controls Platform
+
+Our AI supervisory controller continuously optimizes chilled water and air handler setpoints across your building.
+
+Based on our assessment of your 2024 utility data, we project an 18% reduction in HVAC energy consumption in year one.
+
+Total installed price: $24,000, including integration with your existing BAS.
+
+Savings are tracked through our performance dashboard.</textarea>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #5e5f63"><span>Paste the body of the proposal, not only the cover page.</span><span style="font-family: 'IBM Plex Mono', monospace">Limit 20,000 characters</span></div>
+</div>
+
+<div style="display: flex; align-items: center; gap: 16px">
+<button type="button" style="height: 48px; padding: 0 24px; border: 0; border-radius: 6px; background: #1c1d1f; color: #ffffff; font-family: inherit; font-size: 15px; font-weight: 600">Extract claims</button>
+<button type="button" disabled style="height: 48px; padding: 0 20px; border: 1px dashed #a9a9a2; border-radius: 6px; background: transparent; color: #5e5f63; font-family: inherit; font-size: 14px">Upload PDF · later build</button>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #5e5f63; max-width: 360px">The text is sent to Claude to find the numbers. Nothing is saved after you close the page.</p>
+</div>
+</section>
+
+<aside style="align-self: start; background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">What we look for</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; font-size: 14px">
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de"><span>Claimed savings</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">% and of what</span></li>
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de"><span>Baseline</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">year or kWh</span></li>
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de"><span>Installed price</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">$</span></li>
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de"><span>Controller power draw</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">watts</span></li>
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de"><span>Verification method</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">how savings are proven</span></li>
+<li style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #e3e3de; border-bottom: 1px solid #e3e3de"><span>Weather adjustment</span><span style="font-family: 'IBM Plex Mono', monospace; color: #5e5f63">yes or no</span></li>
+</ul>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5e5f63">Anything the proposal leaves out is marked "Not stated." Missing items often matter more than the ones that are there.</p>
+</aside>
+</main>
+</div>
+</body></html>

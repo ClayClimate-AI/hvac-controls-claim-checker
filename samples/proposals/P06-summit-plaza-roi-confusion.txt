@@ -1,0 +1,33 @@
+FICTIONAL SAMPLE FOR TESTING. Not a real company, building, or offer.
+
+[Vendor F] Autonomous Building Systems
+
+PROPOSAL SP-7788
+Date: September 20, 2026
+
+Prepared for: Chief Engineer, Summit Plaza Retail Center
+Single story, approx. 120,000 sq ft, 14 tenant spaces
+
+1. THE OPPORTUNITY
+
+Summit Plaza spends over $210,000 per year on electricity. [Vendor F] autonomous controls deliver a 150% return on investment over five years.
+
+2. PROJECTED RESULTS
+
+- HVAC energy reduction: 22%
+- Peak demand reduction: 9%
+- Five-year return on investment: 150%
+- Simple payback: 2.0 years
+
+3. INVESTMENT
+
+Total project price: $96,000 for twelve rooftop units, before a utility incentive of $14,000.
+Net project cost after incentive: $82,000.
+
+4. MAINTENANCE
+
+We recommend a full preventive maintenance visit on all twelve units before installation. Our records show the last documented coil cleaning was in 2022.
+
+5. MEASUREMENT
+
+Savings will be calculated by comparing post-installation utility bills with the prior year, adjusted for cooling degree days.

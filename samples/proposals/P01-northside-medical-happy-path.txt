@@ -1,0 +1,87 @@
+FICTIONAL SAMPLE FOR TESTING. Not a real company, building, or offer.
+
+[Vendor A] Building Intelligence
+Adaptive Controls Division
+
+PROPOSAL 2026-114
+Date: August 18, 2026
+Valid through: October 17, 2026
+
+Prepared for:
+Facilities Director
+Northside Medical Office Building
+4 floors, approx. 62,000 sq ft, mixed clinical and office use
+
+Subject: [Vendor A] Adaptive Controls Platform for Rooftop HVAC Optimization
+
+1. EXECUTIVE SUMMARY
+
+Thank you for the opportunity to review your facility. Northside Medical Office Building is an excellent candidate for AI-driven HVAC optimization. Our platform continuously learns your building's occupancy patterns, thermal behavior, and weather response, then adjusts equipment operation in real time to eliminate waste without affecting comfort.
+
+Based on our assessment of your 2024 utility data, we project an 18% reduction in HVAC energy consumption in year one.
+
+In addition to energy savings, customers typically report fewer comfort complaints, extended equipment life, and improved visibility into building performance.
+
+2. EXISTING CONDITIONS
+
+During our site walk on August 6, 2026, we observed:
+- Six (6) packaged rooftop units (RTUs), 10 to 25 tons each, installed between 2011 and 2016
+- An existing building automation system (BAS) with occupied and unoccupied schedules
+- Constant-speed supply fans on all six units
+- Economizers present on four of six units; operational status not verified
+- Thermostat setpoints between 70 and 74 degrees F during occupied hours
+
+3. PROPOSED SOLUTION
+
+The [Vendor A] Adaptive Controls Platform includes:
+- One (1) edge controller per RTU, installed in the unit control panel
+- Wireless zone temperature and humidity sensors (up to 40 points)
+- Cloud-based AI optimization engine with predictive pre-cooling and demand response readiness
+- BACnet/IP integration with your existing BAS
+- Web and mobile performance dashboard
+
+4. SCOPE OF WORK
+
+- Installation and wiring of edge controllers on all six RTUs
+- Installation of wireless sensors in representative zones
+- Integration with the existing BAS front end
+- Two-week learning period, followed by automated optimization
+- Operator training (one 2-hour session)
+- Project closeout documentation
+
+5. PROJECTED SAVINGS
+
+Our AI engine targets the largest sources of HVAC waste: over-conditioning, simultaneous heating and cooling, and inefficient fan operation. Based on our assessment of your 2024 utility data, we project an 18% reduction in HVAC energy consumption in year one. Savings are tracked through our performance dashboard.
+
+Estimated greenhouse gas reduction: 28 metric tons CO2e per year.
+
+6. INVESTMENT SUMMARY
+
+Total installed price: $24,000, including integration with your existing BAS.
+
+Payment terms: 50% due at contract execution, 50% due at substantial completion. Net 30.
+
+7. PROJECT SCHEDULE
+
+- Equipment procurement: 2 to 3 weeks from contract execution
+- Installation: 3 working days
+- Learning period: 14 days
+- Optimization active: approx. 5 weeks from contract execution
+
+8. WARRANTY AND SUPPORT
+
+Hardware is warranted for 3 years from installation. Software updates are included for the first year. Remote support is available business days, 8 AM to 6 PM.
+
+9. ASSUMPTIONS AND EXCLUSIONS
+
+- Existing HVAC equipment is in good working order
+- Owner provides access to the BAS and network connectivity
+- Excludes repair or replacement of existing mechanical components
+- Excludes utility rebate applications
+
+10. ACCEPTANCE
+
+This proposal is valid for 60 days from the date above.
+
+Accepted by: ______________________   Date: ____________
+Title: ___________________________

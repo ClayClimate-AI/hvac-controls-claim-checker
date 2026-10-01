@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;color:#1c1d1f;background:#f4f4f1}
+a{color:#1f5a86}a:hover{color:#153f5e}
+</style>
+</head><body>
+<div style="width: 1280px; height: 760px; box-sizing: border-box; background: #f4f4f1; padding: 40px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #5e5f63">Component states · paste and extract step</span>
+<h1 style="margin: 0; font-size: 26px; font-weight: 600">What the manager sees while waiting, and when something goes wrong</h1>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+<section style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Extracting</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5e5f63">loading</span></div>
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#1c1d1f" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M11 2a9 9 0 1 1-9 9"></path></svg>
+<span style="font-size: 14px">Reading the proposal. This usually takes a few seconds.</span>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13px">
+<li style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center"><span>Claimed savings</span><div style="height: 12px; background: #e3e3de; border-radius: 2px"></div></li>
+<li style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center"><span>Baseline</span><div style="height: 12px; width: 70%; background: #e3e3de; border-radius: 2px"></div></li>
+<li style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center"><span>Installed price</span><div style="height: 12px; width: 50%; background: #e3e3de; border-radius: 2px"></div></li>
+<li style="display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; align-items: center"><span>Verification method</span><div style="height: 12px; width: 80%; background: #e3e3de; border-radius: 2px"></div></li>
+</ul>
+<button type="button" style="align-self: start; height: 44px; padding: 0 18px; border: 1px solid #b9b9b2; border-radius: 6px; background: #ffffff; font-family: inherit; font-size: 14px">Cancel</button>
+</section>
+
+<section style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 15px; font-weight: 600">No claim found</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5e5f63">server returns 422</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #fbf5ea; border: 1px solid #e6cfa6; border-radius: 6px">
+<strong style="font-size: 15px; color: #1c1d1f">We couldn't find a savings claim in this text</strong>
+<span style="font-size: 13px; line-height: 1.5; color: #4a4b4f">Check that you pasted the body of the proposal, not only the cover page or an email signature. You can also enter the numbers yourself.</span>
+</div>
+<div style="display: flex; gap: 12px">
+<button type="button" style="height: 44px; padding: 0 18px; border: 0; border-radius: 6px; background: #1c1d1f; color: #ffffff; font-family: inherit; font-size: 14px; font-weight: 600">Edit the text</button>
+<button type="button" style="height: 44px; padding: 0 18px; border: 1px solid #1c1d1f; border-radius: 6px; background: #ffffff; font-family: inherit; font-size: 14px; font-weight: 500">Enter values by hand</button>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #5e5f63">Entering values by hand skips the AI step entirely. Every later screen works the same.</p>
+</section>
+
+<section style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Input too short</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5e5f63">server returns 400</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="e-text" style="font-size: 14px; font-weight: 600">Proposal text</label>
+<textarea id="e-text" aria-describedby="e-msg" style="height: 120px; box-sizing: border-box; padding: 12px; border: 2px solid #a3432b; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; resize: none">See attached.</textarea>
+<span id="e-msg" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #8f3a25"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#8f3a25" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="6"></circle><path d="M7 4v3.5M7 10h0"></path></svg>Paste at least a paragraph of the proposal so there is something to check.</span>
+</div>
+<button type="button" disabled style="align-self: start; height: 44px; padding: 0 18px; border: 0; border-radius: 6px; background: #c9c9c3; color: #4a4b4f; font-family: inherit; font-size: 14px; font-weight: 600">Extract claims</button>
+</section>
+</div>
+</div>
+</body></html>

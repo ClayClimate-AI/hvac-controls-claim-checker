@@ -1,0 +1,59 @@
+FICTIONAL SAMPLE FOR TESTING. Not a real company, building, or offer.
+
+[Vendor B] Energy Controls, Inc.
+
+PROPOSAL EG-3307
+Date: September 2, 2026
+Valid through: November 1, 2026
+
+Prepared for:
+Property Manager
+Eastgate Corporate Center, Building 2
+3 floors, approx. 88,000 sq ft, multi-tenant office
+
+Subject: Advanced RTU Control Retrofit with Measured Savings
+
+1. SUMMARY
+
+This proposal covers an advanced control retrofit for the eight rooftop units serving Eastgate Building 2. We project a 12% reduction in HVAC electricity use, measured against a weather-normalized baseline and verified after installation.
+
+2. BASELINE
+
+The baseline is the HVAC electricity consumption of Building 2 for the 12 months from July 2025 through June 2026, taken from the eight RTU submeters installed in 2023. Baseline HVAC consumption was 742,000 kWh. Whole-building consumption for the same period was 1,610,000 kWh; savings figures in this proposal apply to HVAC consumption only.
+
+3. EXISTING CONDITIONS
+
+- Eight (8) packaged RTUs, 12.5 to 20 tons, installed 2014
+- BAS with occupancy schedules and night setback
+- Constant-speed supply fans; fans run continuously during occupied hours
+- Economizers functional on all units (verified by damper test on August 21, 2026)
+- Preventive maintenance performed quarterly; last coil cleaning April 2026
+
+4. PROPOSED SOLUTION
+
+- Advanced RTU controller with multi-speed fan control, integrated economizer control, and demand-controlled ventilation (CO2 sensing)
+- Controller power draw: 180 W total for all eight controllers and gateway combined
+- BACnet/IP integration with the existing BAS
+
+5. PROJECTED SAVINGS
+
+We project a 12% reduction in HVAC electricity consumption, or approximately 89,000 kWh per year against the 742,000 kWh baseline.
+
+6. MEASUREMENT AND VERIFICATION
+
+Savings will be measured and verified using IPMVP Option B (retrofit isolation) with the existing RTU submeters. The baseline and reporting periods will be normalized for weather using cooling and heating degree days from the nearest NOAA station. A savings report will be delivered at 6 and 12 months after installation. If verified year-one savings fall below 9%, [Vendor B] will refund 25% of the installed price.
+
+7. INVESTMENT
+
+Total installed price: $38,500. This includes all hardware, installation, integration, commissioning, and the first year of software. Software after year one: $1,200 per year, optional.
+
+8. SCHEDULE
+
+Installation over 4 working days, with optimization active within 3 weeks of contract execution.
+
+9. ASSUMPTIONS AND EXCLUSIONS
+
+- Existing RTUs are in good working order (confirmed by April 2026 maintenance records)
+- Excludes replacement of failed mechanical components
+
+Accepted by: ______________________   Date: ____________

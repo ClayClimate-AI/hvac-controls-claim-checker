@@ -1,0 +1,111 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;color:#1c1d1f;background:#f4f4f1}
+a{color:#1f5a86}a:hover{color:#153f5e}
+</style>
+</head><body>
+<div style="width: 1280px; height: 900px; box-sizing: border-box; background: #f4f4f1; display: flex; flex-direction: column">
+
+<header style="height: 64px; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; background: #ffffff; border-bottom: 1px solid #d2d2cc">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 28px; height: 28px; border: 2px solid #1c1d1f; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">SC</div>
+<span style="font-size: 16px; font-weight: 600">Savings Claim Checker</span>
+</div>
+<ol aria-label="Progress" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; font-size: 13px">
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #2d6a3e"><span style="font-family: 'IBM Plex Mono', monospace">1</span>Paste proposal</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #2d6a3e"><span style="font-family: 'IBM Plex Mono', monospace">2</span>Confirm values</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #1c1d1f; color: #ffffff; font-weight: 500"><span style="font-family: 'IBM Plex Mono', monospace">3</span>Site details</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #5e5f63"><span style="font-family: 'IBM Plex Mono', monospace">4</span>Results</li>
+</ol>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5e5f63; border: 1px dashed #a9a9a2; padding: 4px 8px; border-radius: 3px">Example data</span>
+</header>
+
+<main style="flex-grow: 1; padding: 40px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px">
+<form style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Tell us about the building</h1>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5e5f63; max-width: 640px">The proposal did not cover these. A few quick answers let us test the claim against your building instead of an average one.</p>
+</div>
+
+<fieldset style="margin: 0; padding: 24px; border: 1px solid #d2d2cc; border-radius: 8px; background: #ffffff; display: flex; flex-direction: column; gap: 16px">
+<legend style="padding: 0 8px; font-size: 14px; font-weight: 600">Energy use</legend>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="s-kwh" style="font-size: 13px; font-weight: 600">Annual building energy</label>
+<input id="s-kwh" type="text" value="1,200,000 kWh" style="height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #b9b9b2; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px">
+<span style="font-size: 12px; color: #5e5f63">From the last 12 utility bills</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="s-share" style="font-size: 13px; font-weight: 600">HVAC share of that energy</label>
+<input id="s-share" type="text" value="45%" style="height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #b9b9b2; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px">
+<span style="font-size: 12px; color: #5e5f63">From an audit or submeter. Unsure? Enter your estimate; it is shown as an assumption.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="s-rate" style="font-size: 13px; font-weight: 600">Electricity rate</label>
+<input id="s-rate" type="text" value="$0.10 per kWh" style="height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #b9b9b2; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px">
+<span style="font-size: 12px; color: #5e5f63">Blended rate from your bill</span>
+</div>
+</div>
+</fieldset>
+
+<fieldset style="margin: 0; padding: 24px; border: 1px solid #d2d2cc; border-radius: 8px; background: #ffffff; display: flex; flex-direction: column; gap: 16px">
+<legend style="padding: 0 8px; font-size: 14px; font-weight: 600">Equipment and controls</legend>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="s-maint" style="font-size: 13px; font-weight: 600">Last full HVAC maintenance</label>
+<input id="s-maint" type="text" value="June 2024" style="height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #b9b9b2; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px">
+<span style="font-size: 12px; color: #7a4300">Over 24 months ago. This adds a note and a 20% cut.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="s-age" style="font-size: 13px; font-weight: 600">Age of main HVAC equipment</label>
+<select id="s-age" style="height: 44px; box-sizing: border-box; padding: 0 10px; border: 1px solid #b9b9b2; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; background: #ffffff"><option>10 to 15 years</option><option>Under 10 years</option><option>Over 15 years</option></select>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 600">Do the units run on schedules?</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 2px solid #1c1d1f; border-radius: 6px; font-size: 14px; font-weight: 500"><input type="radio" name="schedules" checked>Yes</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid #b9b9b2; border-radius: 6px; font-size: 14px"><input type="radio" name="schedules">No</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid #b9b9b2; border-radius: 6px; font-size: 14px"><input type="radio" name="schedules">Unknown</label>
+</div>
+<span style="font-size: 13px; font-weight: 600">Do the supply fans slow down or shut off?</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid #b9b9b2; border-radius: 6px; font-size: 14px"><input type="radio" name="fans">Yes</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 2px solid #1c1d1f; border-radius: 6px; font-size: 14px; font-weight: 500"><input type="radio" name="fans" checked>No, one speed all day</label>
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid #b9b9b2; border-radius: 6px; font-size: 14px"><input type="radio" name="fans">Unknown</label>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #eef3f8; border-radius: 6px; font-size: 13px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1f5a86">Assumption</span>
+<span>Schedules with one-speed fans leave less room to improve. Expected savings reduced by <strong style="font-family: 'IBM Plex Mono', monospace">25%</strong>. Rule of thumb, editable.</span>
+<a href="#" style="margin-left: auto; font-weight: 500">Change</a>
+</div>
+</div>
+</fieldset>
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+<a href="Confirm.dc.html" style="font-size: 14px; font-weight: 500">Back to values</a>
+<a href="Results.dc.html" style="height: 48px; padding: 0 24px; display: flex; align-items: center; border-radius: 6px; background: #1c1d1f; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600">See results</a>
+</div>
+</form>
+
+<aside style="align-self: start; display: flex; flex-direction: column; gap: 16px">
+<div style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">How each answer is used</h2>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13px; line-height: 1.45">
+<div><dt style="font-weight: 600">HVAC share</dt><dd style="margin: 0; color: #5e5f63">The vendor's percent applies to HVAC energy only, not the whole building.</dd></div>
+<div><dt style="font-weight: 600">Last maintenance</dt><dd style="margin: 0; color: #5e5f63">Overdue maintenance means part of the savings could come from a tune-up.</dd></div>
+<div><dt style="font-weight: 600">Schedules and fans</dt><dd style="margin: 0; color: #5e5f63">Most controller savings come from fan control. Fans that already slow down or shut off leave less to save.</dd></div>
+<div><dt style="font-weight: 600">Rate</dt><dd style="margin: 0; color: #5e5f63">Turns kWh into dollars and payback years.</dd></div>
+</dl>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px; font-size: 12px; color: #5e5f63">
+<span style="font-weight: 600; color: #1c1d1f">Where values come from</span>
+<span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; background: #e2efe5; border: 1px solid #2d6a3e; display: inline-block"></i>From the proposal</span>
+<span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; background: #ffffff; border: 1px solid #1c1d1f; display: inline-block"></i>Entered by you</span>
+<span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; background: #eef3f8; border: 1px solid #1f5a86; display: inline-block"></i>Assumption you can change</span>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

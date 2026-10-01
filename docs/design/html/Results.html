@@ -1,0 +1,112 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;color:#1c1d1f;background:#f4f4f1}
+a{color:#1f5a86}a:hover{color:#153f5e}
+</style>
+</head><body>
+<div style="width: 1280px; height: 1180px; box-sizing: border-box; background: #f4f4f1; display: flex; flex-direction: column">
+
+<header style="height: 64px; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; background: #ffffff; border-bottom: 1px solid #d2d2cc">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 28px; height: 28px; border: 2px solid #1c1d1f; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">SC</div>
+<span style="font-size: 16px; font-weight: 600">Savings Claim Checker</span>
+</div>
+<ol aria-label="Progress" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; font-size: 13px">
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #2d6a3e"><span style="font-family: 'IBM Plex Mono', monospace">1</span>Paste proposal</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #2d6a3e"><span style="font-family: 'IBM Plex Mono', monospace">2</span>Confirm values</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; color: #2d6a3e"><span style="font-family: 'IBM Plex Mono', monospace">3</span>Site details</li>
+<li style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #1c1d1f; color: #ffffff; font-weight: 500"><span style="font-family: 'IBM Plex Mono', monospace">4</span>Results</li>
+</ol>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5e5f63; border: 1px dashed #a9a9a2; padding: 4px 8px; border-radius: 3px">Example data</span>
+</header>
+
+<main style="flex-grow: 1; padding: 40px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5e5f63">Proposal 2026-114 · Northside Medical Office Building · $24,000 installed</span>
+<h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">The claim holds up at about 60% to 75% of what was promised</h1>
+</div>
+<div style="display: flex; gap: 12px">
+<button type="button" style="height: 44px; padding: 0 18px; border: 1px solid #1c1d1f; border-radius: 6px; background: #ffffff; font-family: inherit; font-size: 14px; font-weight: 500">Copy questions for vendor</button>
+<a href="Main.dc.html" style="height: 44px; padding: 0 18px; display: flex; align-items: center; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid #b9b9b2; color: #1c1d1f">Check another proposal</a>
+</div>
+</div>
+
+<section aria-label="Three cases" style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) 150px 150px 120px; gap: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5e5f63">
+<span>Case</span><span>Annual HVAC savings, kWh</span><span style="text-align: right">kWh per year</span><span style="text-align: right">$ per year</span><span style="text-align: right">Payback</span>
+</div>
+
+<div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) 150px 150px 120px; gap: 20px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Vendor claim</span><span style="font-size: 12px; color: #5e5f63">18% of HVAC energy, as stated</span></div>
+<div style="height: 28px; display: flex; align-items: center"><div style="width: 100%; height: 28px; background: repeating-linear-gradient(135deg, #d9d9d3 0, #d9d9d3 6px, #ececE7 6px, #ececE7 12px); border: 1px solid #a9a9a2; box-sizing: border-box"></div></div>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">97,200</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">$9,720</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">2.5 yrs</span>
+</div>
+
+<div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) 150px 150px 120px; gap: 20px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Adjusted</span><span style="font-size: 12px; color: #5e5f63">13.5% after schedules, one-speed fans</span></div>
+<div style="height: 28px; display: flex; align-items: center"><div style="width: 75%; height: 28px; background: #1f5a86"></div></div>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 500">72,900</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 500">$7,290</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 500">3.3 yrs</span>
+</div>
+
+<div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) 150px 150px 120px; gap: 20px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Conservative</span><span style="font-size: 12px; color: #5e5f63">10.8% if maintenance explains part</span></div>
+<div style="height: 28px; display: flex; align-items: center"><div style="width: 60%; height: 28px; background: #7ea3c2"></div></div>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">58,320</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">$5,832</span>
+<span style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 16px">4.1 yrs</span>
+</div>
+
+<div style="display: flex; gap: 24px; padding-top: 16px; border-top: 1px solid #e3e3de; font-size: 13px; color: #5e5f63">
+<span>Base: 1,200,000 kWh building × 45% HVAC share = 540,000 kWh of HVAC energy</span>
+<span>Controller overhead: <strong style="color: #7a4300">not calculated</strong>, power draw not stated</span>
+</div>
+</section>
+
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 28px">
+<section aria-label="Red flags" style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #d2d2cc">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Red flags</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5e5f63">4 to ask about · 1 on your side</span>
+</div>
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 24px; border-bottom: 1px solid #e3e3de">
+<span style="align-self: start; justify-self: start; font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 3px; background: #f3e2c6; color: #7a4300">Ask before signing</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">No verification method</strong><span style="font-size: 13px; color: #5e5f63">A dashboard shows data; it does not prove savings. Ask: How will you measure and verify savings after install, and against what baseline?</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 24px; border-bottom: 1px solid #e3e3de">
+<span style="align-self: start; justify-self: start; font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 3px; background: #f3e2c6; color: #7a4300">Ask before signing</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">No weather adjustment</strong><span style="font-size: 13px; color: #5e5f63">A mild summer can look like savings. Ask: How are results adjusted for a hotter or milder year?</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 24px; border-bottom: 1px solid #e3e3de">
+<span style="align-self: start; justify-self: start; font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 3px; background: #f3e2c6; color: #7a4300">Ask before signing</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">Baseline has no kWh figure</strong><span style="font-size: 13px; color: #5e5f63">Ask: What baseline kWh did you use, and for which months of 2024?</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 24px; border-bottom: 1px solid #e3e3de">
+<span style="align-self: start; justify-self: start; font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 3px; background: #f3e2c6; color: #7a4300">Ask before signing</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">Controller power draw not stated</strong><span style="font-size: 13px; color: #5e5f63">Ask: What do the controller and its field hardware draw, in watts?</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 16px 24px">
+<span style="align-self: start; justify-self: start; font-size: 12px; font-weight: 500; padding: 3px 8px; border-radius: 3px; border: 1px dashed #8d8d86; color: #4a4b4f">Your side</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">Maintenance is overdue</strong><span style="font-size: 13px; color: #5e5f63">Last full service was June 2024. A tune-up first, then a new baseline, keeps a controller from getting credit for fixes a technician would make anyway.</span></div>
+</div>
+</section>
+
+<aside style="display: flex; flex-direction: column; gap: 16px">
+<section aria-label="Assumptions" style="background: #ffffff; border: 1px solid #d2d2cc; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Assumptions used</h2>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; background: #eef3f8; border-radius: 6px; font-size: 13px"><span>Schedules with one-speed fans reduce savings by <strong style="font-family: 'IBM Plex Mono', monospace">25%</strong></span><a href="#" style="font-weight: 500">Change</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; background: #eef3f8; border-radius: 6px; font-size: 13px"><span>Overdue maintenance explains <strong style="font-family: 'IBM Plex Mono', monospace">20%</strong> of what remains</span><a href="#" style="font-weight: 500">Change</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #d2d2cc; border-radius: 6px; font-size: 13px"><span>HVAC share <strong style="font-family: 'IBM Plex Mono', monospace">45%</strong>, entered by you</span><a href="Site.dc.html" style="font-weight: 500">Edit</a></div>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #5e5f63">These are rules of thumb you set, not published standards. Change them and every case above recalculates.</p>
+</section>
+<p style="margin: 0; padding: 0 4px; font-size: 12px; line-height: 1.5; color: #5e5f63">This is an estimate for comparing claims before you buy. It is not a measurement. Confirm results with metered data after installation.</p>
+</aside>
+</div>
+</main>
+</div>
+</body></html>

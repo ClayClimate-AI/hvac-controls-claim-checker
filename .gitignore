@@ -1,0 +1,14 @@
+.env*
+!.env.example
+node_modules/
+.next/
+.DS_Store
+
+# Private build method: stays local, never pushed
+CLAUDE.md
+AGENTS.md
+BUILD-ENGINE.md
+checkpoints.md
+docs/00_Build_Engine_Mapping.md
+.claude/
+.cursor/

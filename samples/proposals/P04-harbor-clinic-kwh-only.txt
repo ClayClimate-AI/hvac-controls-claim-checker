@@ -1,0 +1,36 @@
+FICTIONAL SAMPLE FOR TESTING. Not a real company, building, or offer.
+
+[Vendor D] Controls Group
+
+PROPOSAL HC-0921
+Date: September 14, 2026
+
+Prepared for: Operations Manager, Harbor Outpatient Clinic
+Single story, approx. 24,000 sq ft
+
+1. OVERVIEW
+
+[Vendor D] proposes a supervisory optimization layer for the clinic's four rooftop units and one dedicated outdoor air unit.
+
+2. ENERGY PROFILE
+
+The clinic used 910,000 kWh of electricity in calendar year 2025, according to the utility bills provided by the owner.
+
+3. PROJECTED SAVINGS
+
+We estimate annual savings of 64,000 kWh, or about $8,300 per year at the clinic's blended rate of $0.13 per kWh.
+
+4. PRICING
+
+Equipment: $14,200
+Installation and integration: $6,900
+Commissioning and training: $1,400
+Total: $22,500
+
+5. VERIFICATION
+
+Savings will be reported monthly by comparing metered consumption with the same month of the prior year.
+
+6. NOTES
+
+The controllers draw approximately 45 watts each.
