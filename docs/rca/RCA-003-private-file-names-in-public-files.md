@@ -24,7 +24,7 @@ None of this was pushed. Had it been, the public repo and its history would have
 - Detected: 2026-10-01, P0.2 C2 code review
 - Logged (before any fix): 2026-10-01, Failure log row 8
 - Fixed: 2026-10-01, P0.1 rebuilt as `9b2a120`, working tree cleaned, `pre-commit` and `commit-msg` hooks installed after blocking three known-bad commits in a scratch clone
-- Verified by Joe:
+- Verified by Joe: 2026-10-02 (the hooks passed a clean real commit, `f09bd5a`, and blocked the known-bad commits in the clone test)
 
 ## 4. Five whys
 1. Why did private file names appear in public files? The Agent wrote them when recording P0.1 and P0.2 facts: the copy-skip list, the Next.js agent-rules message, the permission-mode rule and a code comment.

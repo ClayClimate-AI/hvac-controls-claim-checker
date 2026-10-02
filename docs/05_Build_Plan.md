@@ -4,13 +4,15 @@ Principle: **every step ends in a state that works, and you can prove it works.*
 
 ## Units
 
-Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **units U1 to U8**. Each unit runs the Builder Loop: P-I-O-F, C1, test first, implement, Joe runs it, C2 or C3, then a pull request Joe merges. The Status column is updated at every C2 (private build method, kept local).
+Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **units U1 to U8**. Each unit runs the Builder Loop: P-I-O-F, C1, test first, implement, Joe runs it, C2 or C3, then a pull request Joe merges. The Status column is updated once per batch (Lean v2, amendment A10).
 
-**Mode: Full mode** (amendment A9). Phase 0 runs P0.1 to P0.5; P0.6 is optional and Joe decides when we reach it. Then U1 to U8 in order (U1, U2, U3, never skipping U2: the schema validates every entry point, including the manual path), each with the full loop. U4 is part of the product (D4), never optional. U8 runs all eleven edge cases.
+**Mode: Lean v2** (amendment A10, ADR 0010; contract in `docs/10_Lean_v2_Contract.md`). One contract approval replaces the per-unit C1. Work runs in batches, one pull request each: Phase 0 (P0.3 folded into P0.4, then P0.5; P0.6 dropped, local git hooks cover it) on `chore/phase-0`; Batch A (U2 schema first, then U1 calc and U6 rules in parallel worktrees) on `feat/batch-a`; Batch B (U3, U7, U5 in that order) on `feat/batch-b`; Batch C (U4) on `feat/extract`. Unit branches keep the names in the table below. Tests are written first and fail first; known-bad check for calc only; both reviewers run once per batch; Joe approves every push and merges every PR. U4 is part of the product (D4), never optional. U8's edge-case tests fold into the calc and schema tests; the live-model edge cases and the design check run once at the end on the live URL.
+
+*Superseded:* Full mode (amendment A9), one full loop per unit.
 
 | # | Unit | Done when | How Joe verifies | Branch | Status |
 |---|---|---|---|---|---|
-| P0 | Phase 0: scaffold, bubble, setup gate, Vitest, CI, deploy | Scaffold live on Vercel; `npm run gate` exits 0; CI green | Open the Vercel URL; run the gate; see the Actions check | `chore/phase-0` | in progress (P0.1 committed, P0.2 verified) |
+| P0 | Phase 0: scaffold, bubble, setup gate, Vitest, CI, deploy | Scaffold live on Vercel; `npm run gate` exits 0; CI green | Open the Vercel URL; run the gate; see the Actions check | `chore/phase-0` | in progress (P0.1, P0.2 committed; P0.3/P0.4 built, CI pending push; P0.5 next) |
 | U1 | `calc.ts` with tests | Worked example numbers pass; invariants tested | `npm test` green, read the numbers | `feat/calc` | pending |
 | U2 | `schema.ts` with tests | Valid passes, bad shapes fail | `npm test` green | `feat/schema` | pending |
 | U3 | Manual path | Typed values, including the site inputs the math needs (kWh, HVAC share, rate, maintenance, schedules, fans, price, claim), produce the three cases on screen, validated by `SiteConditionsSchema` | Type the P01 values by hand, compare to the worked example | `feat/manual-path` | pending |
@@ -19,7 +21,7 @@ Slice 0 is **Phase 0** in the Build Engine (P0.1 to P0.6). Slices 1 to 8 are **u
 | U6 | Red flag rules | Sample shows four flags + maintenance note | `rules.test.ts` green, visual check | `feat/red-flags` | pending |
 | **Cut line** | | **Emergency fallback only, not the plan.** Used only if something outside the build stops work; then U7 and U8 become "next steps" in the presentation. U3 already covers the site inputs the math needs, so F4 is met in basic form. | | | |
 | U7 | Polished site form and editable assumptions | Site form asks only for gaps; assumptions editable | Set "runs on schedules" to No: adjusted equals vendor | `feat/site` | pending |
-| U8 | Edge-case run, then tag v1.0 | Eleven cases run and written into the lens; deps diffed | `04_Trustworthy_AI_Lens.md` filled in | `chore/edge-cases` | pending |
+| U8 | Edge-case run, then tag v1.0 | Edge-case tests folded into the calc and schema tests (A10); live-model cases run at the end on the live URL and written into the lens; deps diffed; tag v1.0 | `04_Trustworthy_AI_Lens.md` filled in | `chore/edge-cases` | folded (A10); end steps pending |
 
 U3 comes before the AI on purpose: it proves the math and the screens work without any model, so if the API has problems on gate day the demo still has a working core.
 

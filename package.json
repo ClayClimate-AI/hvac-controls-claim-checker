@@ -10,7 +10,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "gate:setup": "node scripts/setup-gate.mjs"
+    "gate:setup": "node scripts/setup-gate.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "gate": "npm run gate:setup && npm run typecheck && npm run lint && npm test"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.71",
