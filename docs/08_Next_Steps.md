@@ -16,7 +16,7 @@ Read this first when you pick the project back up, or paste it into a new Claude
 | High-fidelity Results | Done |
 | Prompt Log | Planning and grill session logged; build phase empty |
 | Assumptions | Set at C0: site-walk cuts 0% / 25% / 50%, maintenance 20% (ADR 0005) |
-| Mode | Gate mode; code freeze 11:00, present 12:00 |
+| Mode | Full mode (amendment A9): Phase 0, then U1 to U8 in order, full loop on every unit |
 | Code | Not started |
 
 ## Do these before writing code (in order)

@@ -125,7 +125,7 @@ Drafts. **Rewrite these in your own words before submitting.**
 ## 6. Control
 
 ### 6a. "It's scoped" ✅
-In and out of scope in `progress.md`, cut line after U6, amendment rule (no silent changes), Gate mode if time is short. ADRs 0001 to 0004 record the big choices.
+In and out of scope in `progress.md`, cut line after U6 kept only as an emergency fallback, amendment rule (no silent changes), Full mode with the full loop on every unit. ADRs 0001 to 0009 record the big choices.
 
 ### 6b. "You can explain every part" 🟡
 Tools exist: architecture diagrams (`docs/03`), a P-I-O-F for every unit, the plain-language guide and the visual guide. **Still needed:** Joe explains each part out loud once the code exists. C4 reflections are the practice.
@@ -298,8 +298,8 @@ How it's used: the discounts are tiered by what a tech checks on a site walk (fa
 1. "Go find one": read two Trustworthy AI intros, keep one, note it (6 min).
 2. Rewrite the two self-checks in your own words and submit them.
 3. ~~Grill session → C0~~ Done October 1 (ADR 0005 to 0009).
-4. Build (Phase 0, U1 to U6, then U8-lite if in Gate mode).
-5. Run the samples; fill the Measure results, **including failures**.
+4. Build (Phase 0, then U1 to U8 in order, full loop on every unit).
+5. Run all eleven edge cases (U8); fill the Measure results, **including failures**.
 6. Add 2 or 3 real prompt examples to the Prompt Log.
 7. C4 reflections; fill the lens lines in `docs/07`.
 8. Rehearse three times; record a backup video.

@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # CI is set by GitHub Actions, so the setup gate skips the API key check.
+      # Tests never call the real API; this workflow needs no secrets.
+      - run: npm run gate:setup
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
